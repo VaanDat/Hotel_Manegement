@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
 
 const app = express();
 
@@ -21,12 +22,14 @@ mongoose
   .catch((err) => {
     console.log("Error connecting with error code:", err);
   });
-//ROUTES
-app.use("/v1/auth", authRoute);
 
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
+
+//ROUTES
+app.use("/auth", authRoute);
+app.use("/user", userRoute);
 
 app.listen(8000, () => {
   console.log("Server is running");
