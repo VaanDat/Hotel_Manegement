@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import control from "../../src/assets/images/control.png";
 import chart from "../../src/assets/images/dashboard.png";
 import customer from "../../src/assets/images/customer.png";
 import room from "../../src/assets/images/double-bed.png";
@@ -14,6 +14,8 @@ import logo from "../../src/assets/images//logo.png";
 
 function Nav() {
   const [open, setOpen] = useState(true);
+  const user = useSelector((state) => state.auth.login.currentUser);
+  console.log(user);
   return (
     <div className="flex">
       <div
@@ -21,26 +23,21 @@ function Nav() {
           open ? "w-72" : "w-20"
         } duration-300 h-screen p-5 pt-8 font-semibold bg-emerald-600 relative`}
       >
-        {/* <img
-          src={control}
-          alt=""
-          className={`absolute cursor-pointer rounded-full -right-3 top-9 w-7 border-2 border-green-bar ${
-            !open && "rotate-180"
-          }`}
-          onClick={() => setOpen(!open)}
-        /> */}
-        <div className="flex">
-          <Link to="/" className="flex gap-x-4 items-center">
-            <h1
-              className={`text-white origin-left font-medium text-lg duration-300 ${
-                !open && "scale-0"
-              }`}
-            >
-              Welcome back, Admin!
-            </h1>
-          </Link>
-        </div>
-
+        {user ? (
+          <div className="flex">
+            <Link to="/" className="flex gap-x-4 items-center">
+              <h1
+                className={`text-white origin-left font-medium text-lg duration-300 ${
+                  !open && "scale-0"
+                }`}
+              >
+                Welcome back, <span> {user.user.name} </span> !
+              </h1>
+            </Link>
+          </div>
+        ) : (
+          <></>
+        )}
         <ul className="pt-6">
           <li className="mt-2 text-gray-300 text-sm flex  cursor-pointer p-2 hover:bg-slate-400 rounded-md ">
             <Link to="/dashboard" className="flex gap-x-4 items-center ">
@@ -99,7 +96,7 @@ function Nav() {
               <img src={roomtypes} alt="" className="w-6 h-6 text-white" />
 
               <span className={`${!open && "hidden"} origin-left duration-200`}>
-                RoomTypes
+                Users
               </span>
             </Link>
           </li>
@@ -118,12 +115,11 @@ function Nav() {
             !open && "hidden"
           } duration-200 `}
         >
-          <button class="mt-8 text-sm bg-white text-emerald-800 font-medium py-2 px-4 rounded hover:bg-green-400">
-            Register
-          </button>
-          <button class="mt-8 text-sm bg-white text-emerald-800 font-medium py-2 px-4 rounded hover:bg-green-400">
-            Log in
-          </button>
+          <Link to="/">
+            <button class="mt-8 text-sm bg-white text-emerald-800 font-medium py-2 px-4 rounded hover:bg-green-400">
+              Log out
+            </button>
+          </Link>
         </div>
         <div className={`mt-20 flex justify-center ${!open && "hidden"}`}>
           <img src={logo} alt="" className="w-30 h-10" />

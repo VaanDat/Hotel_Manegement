@@ -1,5 +1,5 @@
 import Dashboard from "../pages/Dashboard";
-import RoomTypes from "../pages/Roomtypes";
+import Users from "../pages/Users";
 import HouseKeeping from "../pages/Housekeeping";
 import Arrivals from "../pages/Arrivals";
 import Reservations from "../pages/Reservations";
@@ -9,7 +9,7 @@ import Departures from "../pages/Departures";
 
 const publicRoutes = [
   { path: "/dashboard", component: Dashboard, title: "Dashboard" },
-  { path: "/roomtypes", component: RoomTypes, title: "RoomTypes" },
+  { path: "/users", component: Users, title: "RoomTypes" },
   { path: "/reservations", component: Reservations, title: "Schedule" },
   { path: "/housekeeping", component: HouseKeeping, title: "HouseKeeping" },
   { path: "/arrivals", component: Arrivals, title: "Arrivals" },

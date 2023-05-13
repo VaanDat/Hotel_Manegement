@@ -9,6 +9,15 @@ const userSchema = new mongoose.Schema(
       max: 20,
       unique: true,
     },
+    name: {
+      type: String,
+      require: true,
+      max: 50,
+    },
+    position: {
+      type: String,
+      require: true,
+    },
     email: {
       type: String,
       require: true,

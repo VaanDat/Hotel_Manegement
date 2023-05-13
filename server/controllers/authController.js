@@ -14,6 +14,8 @@ const authController = {
       const newUser = await new User({
         username: req.body.username,
         email: req.body.email,
+        name: req.body.name,
+        position: req.body.position,
         password: hashed,
       });
 
@@ -32,7 +34,7 @@ const authController = {
         admin: user.isAdmin,
       },
       process.env.JWT_ACCESS_KEY,
-      { expiresIn: "30s" }
+      { expiresIn: "3d" }
     );
   },
   //GENERATE REFRESH TOKEN
