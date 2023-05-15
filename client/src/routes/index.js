@@ -6,6 +6,7 @@ import Reservations from "../pages/Reservations";
 import Customer from "../pages/Customer";
 import Rooms from "../pages/Rooms";
 import Departures from "../pages/Departures";
+import AddUser from "../components/AddUser";
 
 const publicRoutes = [
   { path: "/dashboard", component: Dashboard, title: "Dashboard" },
@@ -16,8 +17,9 @@ const publicRoutes = [
   { path: "/customer", component: Customer, title: "Customer" },
   { path: "/departures", component: Departures, title: "Departures" },
   { path: "/rooms", component: Rooms, title: "Rooms" },
+  { path: "/adduser", component: AddUser, title: "Add User" },
 ];
 
-const privateRoutes = [];
+const privateRoutes = [{}];
 
 export { publicRoutes, privateRoutes };

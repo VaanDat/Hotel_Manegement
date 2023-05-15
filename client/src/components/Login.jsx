@@ -12,11 +12,11 @@ export default function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const newUser = {
+    const user = {
       username: username,
       password: password,
     };
-    loginUser(newUser, dispatch, navigate);
+    loginUser(user, dispatch, navigate);
   };
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 h-screen w-full">

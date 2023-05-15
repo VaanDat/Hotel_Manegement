@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { GetAllUsers } from "../redux/apiRequest";
+import React, { useEffect } from "react";
+import { GetAllUsers, deleteUser } from "../redux/apiRequest";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -7,21 +7,25 @@ export default function Users() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.users.users?.allUsers);
-  console.log(userList);
   useEffect(() => {
     GetAllUsers(user.accessToken, dispatch);
-  }, []);
+  });
+  const handleDelete = (id) => {
+    deleteUser(user.accessToken, dispatch, id);
+  };
   return (
     <div className="h-screen flex-1 p-7">
-
-      <Link 
+      <div className="flex justify-center mb-5 font-medium">{`YOUR ROLE: ${
+        user.user?.isAdmin ? `ADMIN` : `USER`
+      }`}</div>
+      <Link
         to="/adduser"
         className=" text-sm bg-emerald-600   text-white font-medium py-2 px-4 rounded hover:shadow-lg"
       >
-        Create +
+        ADD +
       </Link>
 
-      <table className="min-w-full divide-y divide-gray-200 mt-2">
+      <table className="min-w-full divide-y divide-gray-200 mt-2 border">
         <thead className="bg-gray-500">
           <tr>
             <th
@@ -48,7 +52,10 @@ export default function Users() {
               <td className="px-6 py-4 whitespace-nowrap">{item.name}</td>
               <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
               <td className="flex px-6 py-4 whitespace-nowrap justify-center">
-                <button class="text-sm mr-3 bg-red-600   text-white font-medium py-2 px-4 rounded hover:shadow-lg ">
+                <button
+                  class="text-sm mr-3 bg-red-600   text-white font-medium py-2 px-4 rounded hover:shadow-lg "
+                  onClick={() => handleDelete(item._id)}
+                >
                   Delete
                 </button>
                 <button class="text-sm bg-emerald-600   text-white font-medium py-2 px-4  rounded hover:shadow-lg">

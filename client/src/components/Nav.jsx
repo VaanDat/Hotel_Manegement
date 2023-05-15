@@ -15,12 +15,12 @@ import logo from "../../src/assets/images//logo.png";
 function Nav() {
   const user = useSelector((state) => state.auth.login.currentUser);
   return (
-    <div className="flex">
+    <div className="flex block">
       <div className="w-72 h-screen p-5 pt-8 font-semibold bg-emerald-600 relative">
         {user ? (
           <div className="flex">
             <h1 className="text-white origin-left font-medium text-lg italic">
-              Welcome back, <span> {user.user.name} </span> !
+              Hi, <span> {user.user.name} </span> !
             </h1>
           </div>
         ) : (
