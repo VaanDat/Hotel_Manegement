@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+const roomRoute = require("./routes/room")
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(express.json());
 //ROUTES
 app.use("/auth", authRoute);
 app.use("/user", userRoute);
+app.use("/room", roomRoute);
 
 app.listen(8000, () => {
   console.log("Server is running");

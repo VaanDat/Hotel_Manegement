@@ -11,6 +11,7 @@ import {
   deleteUserSuccess,
   deleteUserFailed,
 } from "./userSlice";
+import { getRoomsStart, getRoomsSuccess, getRoomsFailed } from "./roomSlice";
 
 //Login
 export const loginUser = async (user, dispatch, navigate) => {
@@ -24,7 +25,7 @@ export const loginUser = async (user, dispatch, navigate) => {
   }
 };
 
-//GetAllUsers
+//Get All Users
 export const GetAllUsers = async (accessToken, dispatch) => {
   dispatch(getUsersStart());
   try {
@@ -36,8 +37,19 @@ export const GetAllUsers = async (accessToken, dispatch) => {
     dispatch(getUsersFailed());
   }
 };
-
-//AddNewUser
+//Get All Rooms
+export const GetAllRooms = async (accessToken, dispatch) => {
+  dispatch(getRoomsStart());
+  try {
+    const res = await axios.get("http://localhost:8000/room/", {
+      headers: { token: `Bearer ${accessToken}` },
+    });
+    dispatch(getRoomsSuccess(res.data));
+  } catch (err) {
+    dispatch(getRoomsFailed());
+  }
+};
+//Add New User
 export const AddNewUser = async (user, dispatch, navigate) => {
   dispatch(addUserStart());
   try {
