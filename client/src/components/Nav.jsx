@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -15,10 +15,10 @@ import logo from "../../src/assets/images//logo.png";
 function Nav() {
   const user = useSelector((state) => state.auth.login.currentUser);
   return (
-    <div className="flex block">
+    <div className="flex">
       <div className="w-72 h-screen p-5 pt-8 font-semibold bg-emerald-600 relative">
         {user ? (
-          <div className="flex">
+          <div className="flex justify-center">
             <h1 className="text-white origin-left font-medium text-lg italic">
               Hi, <span> {user.user.name} </span> !
             </h1>
