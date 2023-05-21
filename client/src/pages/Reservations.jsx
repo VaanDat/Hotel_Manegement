@@ -11,6 +11,15 @@ export default function Reservations() {
   const bookingList = useSelector(
     (state) => state.bookings.bookings.allBookings
   );
+  function normal_date(date) {
+    var year = date.substring(0, 4);
+    var month = date.substring(5, 7);
+    var day = date.substring(8, 10);
+    var normal_date = day + "-" + month + "-" + year;
+    return normal_date;
+  }
+  // console.log(normal_date(bookingList[0].arrivalDate.substring(0,10)))
+  // console.log((bookingList[0].arrivalDate.substring(0,10))) checktype
   return (
     <div className="h-screen flex-1 font-nunito">
       <div className="flex flex-col bg-white">
@@ -119,10 +128,10 @@ export default function Reservations() {
                     {item.roomtype}
                   </td>
                   <td className="px-4 py-2 whitespace-nowrap">
-                    {item.arrivalDate}
+                    {normal_date(item.arrivalDate.substring(0, 10))}
                   </td>
                   <td className="px-4 py-2 whitespace-nowrap">
-                    {item.departureDate}
+                    {normal_date(item.departureDate.substring(0, 10))}
                   </td>
                 </tr>
               ))}

@@ -107,7 +107,9 @@ export default function Customer() {
                 <tr key={item.id}>
                   <td className="px-4 py-2 whitespace-nowrap">{item.name}</td>
                   <td className="px-4 py-2 whitespace-nowrap">{item.gender}</td>
-                  <td className="px-4 py-2 whitespace-nowrap">{item.date}</td>
+                  <td className="px-4 py-2 whitespace-nowrap">
+                    {item.date.substring(0, 10)}
+                  </td>
                   <td className="px-4 py-2 whitespace-nowrap">
                     {item.phoneNumber}
                   </td>

@@ -6,6 +6,7 @@ import edit from "../assets/images/edit.png";
 
 export default function Users() {
   const user = useSelector((state) => state.auth.login.currentUser);
+
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.users.users?.allUsers);
   useEffect(() => {

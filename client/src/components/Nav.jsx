@@ -12,6 +12,7 @@ import users from "../../src/assets/images/user.png";
 import setting from "../../src/assets/images/setting.png";
 function Nav() {
   const user = useSelector((state) => state.auth.login.currentUser);
+  console.log(user);
   return (
     <div className="flex font-nunito">
       <div className="w-72 h-screen p-5 pt-8 font-semibold bg-emerald-600 relative">

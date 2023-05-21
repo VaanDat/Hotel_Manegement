@@ -120,7 +120,9 @@ export default function BookingForm() {
                 class=" appearance-none border rounded w-full p-2 border-gray-600 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="date"
                 type="date"
-                onChange={(e) => setArrivalDate(e.target.value)}
+                onChange={(e) => {setArrivalDate(e.target.value)
+                console.log(e.target.value);}
+                }
               />
             </div>
             <div className="ml-4">

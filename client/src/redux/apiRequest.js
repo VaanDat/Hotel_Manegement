@@ -101,10 +101,11 @@ export const AddNewUser = async (user, dispatch, navigate) => {
 export const AddNewBooking = async (booking, dispatch, navigate) => {
   dispatch(addBookingStart());
   try {
-    const res = await axios.post("http://localhost:8000/booking", booking);
+    const res = await axios.post("http://localhost:8000/booking/add", booking);
     dispatch(addBookingSuccess(res.data));
     navigate("/booking");
   } catch (err) {
+    console.error(err);
     dispatch(addBookingFailed());
   }
 };
