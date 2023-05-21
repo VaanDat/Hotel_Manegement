@@ -3,29 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetAllRooms } from "../redux/apiRequest";
 
 export default function Rooms() {
-  const data = [
-    {
-      id: "1",
-      roomnumber: "101",
-      roomtype: "Standrad",
-      floor: "1",
-      status: "usable",
-    },
-    {
-      id: "2",
-      roomnumber: "102",
-      roomtype: "Standrad",
-      floor: "1",
-      status: "usable",
-    },
-  ];
   const user = useSelector((state) => state.auth.login.currentUser);
+
+  const dispatch = useDispatch();
+  const roomList = useSelector((state) => state.rooms.rooms.allRooms);
   useEffect(() => {
     GetAllRooms(user.accessToken, dispatch);
   });
-  const dispatch = useDispatch();
-  const roomList = useSelector((state) => state.rooms.rooms.allRooms);
-
   return (
     <div className="h-screen flex-1 p-7">
       <form>
@@ -69,8 +53,8 @@ export default function Rooms() {
       ADD +
     </Link> */}
 
-      <table className="min-w-full divide-y divide-gray-200 mt-2 border">
-        <thead className="bg-gray-500">
+      <table className="min-w-full divide-y divide-gray-200 mt-2 border font-nunito shadow-lg">
+        <thead className="bg-emerald-600">
           <tr>
             <th
               scope="col"

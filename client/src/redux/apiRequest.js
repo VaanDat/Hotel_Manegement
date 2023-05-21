@@ -12,8 +12,21 @@ import {
   deleteUserFailed,
 } from "./userSlice";
 import { getRoomsStart, getRoomsSuccess, getRoomsFailed } from "./roomSlice";
+import {
+  getCustomersStart,
+  getCustomersSuccess,
+  getCustomerFailed,
+} from "./customerSlice";
+import {
+  addBookingFailed,
+  addBookingStart,
+  addBookingSuccess,
+  getBookingsFailed,
+  getBookingsStart,
+  getBookingsSuccess,
+} from "./bookingSlice";
 
-//Login
+//LOGIN
 export const loginUser = async (user, dispatch, navigate) => {
   dispatch(loginStart());
   try {
@@ -25,7 +38,7 @@ export const loginUser = async (user, dispatch, navigate) => {
   }
 };
 
-//Get All Users
+//GET ALL USERS
 export const GetAllUsers = async (accessToken, dispatch) => {
   dispatch(getUsersStart());
   try {
@@ -37,7 +50,7 @@ export const GetAllUsers = async (accessToken, dispatch) => {
     dispatch(getUsersFailed());
   }
 };
-//Get All Rooms
+//GET ALL ROOMS
 export const GetAllRooms = async (accessToken, dispatch) => {
   dispatch(getRoomsStart());
   try {
@@ -49,7 +62,31 @@ export const GetAllRooms = async (accessToken, dispatch) => {
     dispatch(getRoomsFailed());
   }
 };
-//Add New User
+//GET ALL CUSTOMERS
+export const GetAllCustomers = async (accessToken, dispatch) => {
+  dispatch(getCustomersStart);
+  try {
+    const res = await axios.get("http://localhost:8000/customer/", {
+      headers: { token: `Bearer ${accessToken}` },
+    });
+    dispatch(getCustomersSuccess(res.data));
+  } catch (err) {
+    dispatch(getCustomerFailed());
+  }
+};
+//GET ALL BOOKINGS
+export const GetAllBookings = async (accessToken, dispatch) => {
+  dispatch(getBookingsStart());
+  try {
+    const res = await axios.get("http://localhost:8000/booking", {
+      headers: { token: `Bearer ${accessToken}` },
+    });
+    dispatch(getBookingsSuccess(res.data));
+  } catch (err) {
+    dispatch(getBookingsFailed());
+  }
+};
+//ADD NEW USER
 export const AddNewUser = async (user, dispatch, navigate) => {
   dispatch(addUserStart());
   try {
@@ -60,8 +97,19 @@ export const AddNewUser = async (user, dispatch, navigate) => {
     dispatch(addUserFailed());
   }
 };
+//ADD NEW BOOKING
+export const AddNewBooking = async (booking, dispatch, navigate) => {
+  dispatch(addBookingStart());
+  try {
+    const res = await axios.post("http://localhost:8000/booking", booking);
+    dispatch(addBookingSuccess(res.data));
+    navigate("/booking");
+  } catch (err) {
+    dispatch(addBookingFailed());
+  }
+};
 
-//Delete User
+//DELETE USER
 export const deleteUser = async (accessToken, dispatch, id) => {
   dispatch(deleteUserStart());
   try {

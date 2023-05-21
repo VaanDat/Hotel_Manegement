@@ -26,28 +26,33 @@ export default function AddUser() {
   };
 
   return (
-    <div class="bg-gray-200 min-h-screen flex">
+    <div class="bg-gray-200 min-h-screen flex font-nunito">
       <div class="container max-w-2xl mx-auto flex-1 flex  items-center justify-center">
         <form
           class="bg-white px-6 py-8 rounded shadow-md text-black w-full"
           onSubmit={handleAddUser}
         >
-          <h1 class="mb-8 text-3xl text-center font-medium">New User</h1>
+          <h1 class="mb-3 text-3xl font-medium">Add new user</h1>
+          <hr class="border-slate-950 mb-4"></hr>
           <div className="flex">
             <div className="">
-              <label>Fullname</label>
+              <label className="block text-gray-700 text-sm font-bold mb-2">
+                Fullname
+              </label>
               <input
                 type="text"
-                class="block border border-grey-light w-72 p-3 rounded mb-4"
+                class="block border border-grey-light w-72 p-1.5 rounded mb-4"
                 name="fullname"
                 placeholder="Fullname"
                 onChange={(e) => setFullname(e.target.value)}
               />
             </div>
             <div className="ml-3">
-              <label>Gender</label>
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Gender
+              </label>
               <select
-                class="block border border-grey-light w-36 p-3 rounded mb-4"
+                class="block border border-grey-light w-36 p-1.5 rounded mb-4"
                 placeholder="Position"
                 value={position}
                 onChange={(e) => setPosition(e.target.value)}
@@ -57,14 +62,18 @@ export default function AddUser() {
               </select>
             </div>
             <div className="ml-3">
-              <label>Position</label>
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Position
+              </label>
               <select
-                class="block border border-grey-light w-40 p-3 rounded mb-4"
+                class="block border border-grey-light w-40 p-1.5 rounded mb-4"
                 placeholder="Position"
                 value={position}
                 onChange={(e) => setPosition(e.target.value)}
               >
-                <option value="Manager">Manager</option>
+                <option value="Manager" selected  >
+                  Manager
+                </option>
                 <option value="Reception">Reception</option>
                 <option value="Staff">Staff</option>
                 <option value="Chef">Chef</option>
@@ -74,34 +83,40 @@ export default function AddUser() {
           </div>
           <div className="flex">
             <div className="">
-              <label>Username</label>
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Username
+              </label>
               <input
                 type="text"
-                class="block border border-grey-light w-72 p-3 rounded mb-4"
+                class="block border border-grey-light w-72 p-1.5 rounded mb-4"
                 name="username"
-                placeholder="Username"
+                placeholder="Enter your username"
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
             <div className="ml-3">
-              <label>Password</label>
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Password
+              </label>
               <input
                 type="password"
-                class="block border border-grey-light w-80 p-3 rounded mb-4"
+                class="block border border-grey-light w-80 p-1.5 rounded mb-4"
                 name="pasword"
-                placeholder="Password"
+                placeholder="Enter your password"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
           <div className="flex">
             <div className="">
-              <label>Email</label>
+              <label class="block text-gray-700 text-sm font-bold mb-2">
+                Email
+              </label>
               <input
                 type="text"
-                class="block border border-grey-light w-72 p-3 rounded mb-4"
+                class="block border border-grey-light w-72 p-1.5 rounded mb-4"
                 name="email"
-                placeholder="Email"
+                placeholder="Enter your email"
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
