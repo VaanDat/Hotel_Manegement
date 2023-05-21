@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
 
 import chart from "../../src/assets/images/dashboard.png";
 import customer from "../../src/assets/images/customer.png";
@@ -12,7 +13,10 @@ import users from "../../src/assets/images/user.png";
 import setting from "../../src/assets/images/setting.png";
 function Nav() {
   const user = useSelector((state) => state.auth.login.currentUser);
-  console.log(user);
+  // const [isLogin, setIsLogin] = useState(false);
+  // if (user) {
+  //   setIsLogin(true);
+  // }
   return (
     <div className="flex font-nunito">
       <div className="w-72 h-screen p-5 pt-8 font-semibold bg-emerald-600 relative">
@@ -21,15 +25,11 @@ function Nav() {
             <img src={ava} alt="" className=" w-10 h-10 text-white" />
           </div>
 
-          {user ? (
-            <div className="flex justify-center">
-              <h1 className="mt-2 text-white origin-left font-medium text-lg italic">
-                <span> {user.user.name} </span>
-              </h1>
-            </div>
-          ) : (
-            <></>
-          )}
+          <div className="flex justify-center">
+            <h1 className="mt-2 text-white origin-left font-medium text-lg italic">
+              <span> {user.user.name} </span>
+            </h1>
+          </div>
         </div>
         <hr class="border-white my-6"></hr>
         <ul className="mt-8 font-medium">

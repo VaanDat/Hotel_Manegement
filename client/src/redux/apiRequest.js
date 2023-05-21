@@ -39,12 +39,10 @@ export const loginUser = async (user, dispatch, navigate) => {
 };
 
 //GET ALL USERS
-export const GetAllUsers = async (accessToken, dispatch) => {
+export const GetAllUsers = async (user, dispatch) => {
   dispatch(getUsersStart());
   try {
-    const res = await axios.get("http://localhost:8000/user/", {
-      headers: { token: `Bearer ${accessToken}` },
-    });
+    const res = await axios.get("http://localhost:8000/user/",user);
     dispatch(getUsersSuccess(res.data));
   } catch (err) {
     dispatch(getUsersFailed());

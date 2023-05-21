@@ -10,7 +10,7 @@ export default function Users() {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.users.users?.allUsers);
   useEffect(() => {
-    GetAllUsers(user.accessToken, dispatch);
+    GetAllUsers(user, dispatch);
   });
   const handleDelete = (id) => {
     deleteUser(user.accessToken, dispatch, id);
