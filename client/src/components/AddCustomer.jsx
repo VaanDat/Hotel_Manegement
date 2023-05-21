@@ -32,9 +32,8 @@ export default function AddUser() {
           class="bg-white px-6 py-8 rounded shadow-md text-black w-full"
           onSubmit={handleAddUser}
         >
-          <h1 class="mb-8 text-3xl text-center font-medium">
-            Add new customer
-          </h1>
+          <h1 class="mb-3 text-3xl font-medium">Add new customer !</h1>
+          <hr class="border-slate-950 mb-4"></hr>
           <div className="flex">
             <div className="">
               <label className="block text-gray-700 text-sm font-bold mb-2">
