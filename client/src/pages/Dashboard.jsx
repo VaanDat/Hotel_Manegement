@@ -5,9 +5,11 @@ export default function Dashboard() {
     <div className="flex-auto font-nunito">
       <div className="flex flex-col">
         <div className="flex flex-col bg-white">
-          <div className="flex flex-row space-x-3">
-            <h4 className="font-bold  text-gray-950 p-5">DASHBOARD</h4>
-          </div>
+          <h4 className="font-bold text-xl text-gray-950 pl-5 pt-5 pb-2">
+            DASHBOARD
+          </h4>
+
+          <p className="text-sm pl-5">21th May 2023</p>
         </div>
         <div className="min-h-screen bg-white">
           <div className="mt-8 grid gap-10 lg:grid-cols-3 sm-grid-cols-2 p-4">
