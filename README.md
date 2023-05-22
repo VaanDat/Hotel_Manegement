@@ -2,5 +2,5 @@
 MY PROJECT
 Build a website to manage your hotel !!!
 
-username: phamvandat
+username: phamvandat 	
 password: 123456789
