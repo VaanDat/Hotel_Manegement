@@ -1,6 +1,8 @@
 # Hotel_Manegement
-MY PROJECT
-Build a website to manage your hotel !!!
 
-username: phamvandat 	///
-password: 123456789
+- My project
+- Build a basic website to manage your hotel
+- You can try with : { username : phamvandat, password: 123456789}
+- Can add and delete customer, booking, customer, user
+
+
