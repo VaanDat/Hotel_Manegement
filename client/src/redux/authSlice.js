@@ -8,7 +8,11 @@ const authSlice = createSlice({
       isFetching: false,
       error: false,
     },
-   
+    refreshToken: {
+      token: null,
+      isFetching: false,
+      error: false,
+    },
   },
   reducers: {
     loginStart: (state) => {
@@ -23,15 +27,28 @@ const authSlice = createSlice({
       state.login.isFetching = false;
       state.login.error = true;
     },
-    
+    refreshTokenStart: (state) => {
+      state.refreshToken.isFetching = true;
+    },
+    refreshTokenSuccess: (state, action) => {
+      state.refreshToken.isFetching = false;
+      state.refreshToken.token = action.payload;
+      state.refreshToken.error = false;
+    },
+    refreshTokenFailed: (state) => {
+      state.login.isFetching = false;
+      state.login.error = true;
+    },
   },
 });
 
 export const {
   loginStart,
   loginFailed,
-  loginSuccess
- 
+  loginSuccess,
+  refreshTokenStart,
+  refreshTokenSuccess,
+  refreshTokenFailed,
 } = authSlice.actions;
 
 export default authSlice.reducer;

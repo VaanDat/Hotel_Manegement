@@ -121,7 +121,7 @@ export default function BookingForm() {
                 id="date"
                 type="date"
                 onChange={(e) => {setArrivalDate(e.target.value)
-                console.log(e.target.value);}
+                }
                 }
               />
             </div>

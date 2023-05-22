@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ava from "../../src/assets/images/hacker.png";
 import ava1 from "../../src/assets/images/hacker1.png";
 export default function Dashboard() {
@@ -9,76 +10,83 @@ export default function Dashboard() {
             DASHBOARD
           </h4>
 
-          <p className="text-sm pl-5">21th May 2023</p>
+          <p className="text-sm pl-5">Welcome back!</p>
         </div>
         <div className="min-h-screen bg-white">
           <div className="mt-8 grid gap-10 lg:grid-cols-3 sm-grid-cols-2 p-4">
-            <div className="flex items-center bg-white rounded shadow-lg justify-between p-5 border border-emerald-600 hover:-translate-y-2 duration-75">
-              <div className="">
-                <div className="text-sm text-gray-400">Check in Today</div>
-                <div className="text-3xl font-medium text-gray-600"> 15</div>
+            <Link to="/booking">
+              <div className="flex items-center bg-white rounded shadow-lg justify-between p-5 border border-emerald-600 hover:-translate-y-2 duration-75">
+                <div className="">
+                  <div className="text-sm text-gray-400">Check in Today</div>
+                  <div className="text-3xl font-medium text-gray-600"> 15</div>
+                </div>
+                <div className="text-emerald-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-10 h-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
               </div>
-              <div className="text-emerald-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-10 h-10"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+            </Link>
+            <Link to="/booking">
+              {" "}
+              <div className="flex items-center bg-white rounded shadow-lg justify-between p-5 border border-emerald-600 hover:-translate-y-2 duration-75">
+                <div className="">
+                  <div className="text-sm text-gray-400">Check out Today</div>
+                  <div className="text-3xl font-medium text-gray-600"> 10</div>
+                </div>
+                <div className="text-emerald-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-10 h-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center bg-white rounded shadow-lg justify-between p-5 border border-emerald-600 hover:-translate-y-2 duration-75">
-              <div className="">
-                <div className="text-sm text-gray-400">Check out Today</div>
-                <div className="text-3xl font-medium text-gray-600"> 10</div>
+            </Link>
+            <Link to="/customer">
+              <div className="flex items-center bg-white rounded shadow-lg justify-between p-5 border border-emerald-600 hover:-translate-y-2 duration-75">
+                <div className="">
+                  <div className="text-sm text-gray-400">Total properties</div>
+                  <div className="text-3xl font-medium text-gray-600">2002</div>
+                </div>
+                <div className="text-emerald-600">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-10 h-10"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                    />
+                  </svg>
+                </div>
               </div>
-              <div className="text-emerald-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-10 h-10"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-            </div>
-            <div className="flex items-center bg-white rounded shadow-lg justify-between p-5 border border-emerald-600 hover:-translate-y-2 duration-75">
-              <div className="">
-                <div className="text-sm text-gray-400">Total properties</div>
-                <div className="text-3xl font-medium text-gray-600">2002</div>
-              </div>
-              <div className="text-emerald-600">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-10 h-10"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-                  />
-                </svg>
-              </div>
-            </div>
+            </Link>
           </div>
           <div class=" mt-5 grid  lg:grid-cols-3  md:grid-cols-3 p-4 gap-3">
             <div class="col-span-2 flex flex-col   p-8 bg-white rounded shadow-lg border border-emerald-600 hover:-translate-y-2 duration-75s">

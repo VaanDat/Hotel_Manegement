@@ -15,7 +15,7 @@ export default function Rooms() {
       <div className="flex flex-col bg-white">
         <h4 className="font-bold text-xl text-gray-950 pl-5 pt-5 pb-2">ROOM</h4>
 
-        <p className="text-sm pl-5">21th May 2023</p>
+        <p className="text-sm pl-5">Welcome back!</p>
       </div>
       <div className="p-7">
         <form>

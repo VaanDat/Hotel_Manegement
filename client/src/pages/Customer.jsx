@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAllCustomers } from "../redux/apiRequest";
+import { GetAllCustomers, deleteCustomer } from "../redux/apiRequest";
 import { Link } from "react-router-dom";
 
 export default function Customer() {
@@ -14,6 +14,9 @@ export default function Customer() {
   const customerList = useSelector(
     (state) => state.customers.customers.allCustomers
   );
+  const handleDelete = (id) => {
+    deleteCustomer(user.accessToken, dispatch, id);
+  };
   return (
     <div className="h-screen flex-1 font-nunito">
       <div className="flex flex-col bg-white">
@@ -21,7 +24,7 @@ export default function Customer() {
           CUSTOMER
         </h4>
 
-        <p className="text-sm pl-5">21th May 2023</p>
+        <p className="text-sm pl-5">Welcome back!</p>
       </div>
       <div className="p-7">
         <div className="">
@@ -99,6 +102,10 @@ export default function Customer() {
               >
                 Country
               </th>
+              <th
+                scope="col"
+                className="px-4 py-2 text-left text-xs  text-white uppercase "
+              ></th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200 border-collapse border border-gray-400">
@@ -115,6 +122,14 @@ export default function Customer() {
                   </td>
                   <td className="px-4 py-2 whitespace-nowrap">
                     {item.country}
+                  </td>
+                  <td className="flex px-4 py-2 whitespace-nowrap justify-center">
+                    <button
+                      className="text-sm mr-3 bg-red-600   text-white py-1  px-2 rounded hover:shadow-lg "
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

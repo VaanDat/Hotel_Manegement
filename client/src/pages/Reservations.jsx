@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetAllBookings } from "../redux/apiRequest";
+import { GetAllBookings, deleteBooking } from "../redux/apiRequest";
+
 export default function Reservations() {
   const user = useSelector((state) => state.auth.login.currentUser);
   const dispatch = useDispatch();
@@ -18,6 +19,9 @@ export default function Reservations() {
     var normal_date = day + "-" + month + "-" + year;
     return normal_date;
   }
+  const handleDelete = (id) => {
+    deleteBooking(user.accessToken, dispatch, id);
+  };
   // console.log(normal_date(bookingList[0].arrivalDate.substring(0,10)))
   // console.log((bookingList[0].arrivalDate.substring(0,10))) checktype
   return (
@@ -27,7 +31,7 @@ export default function Reservations() {
           BOOKING
         </h4>
 
-        <p className="text-sm pl-5">21th May 2023</p>
+        <p className="text-sm pl-5">Welcome back!</p>
       </div>
       <div className="p-7">
         <div className="">
@@ -111,6 +115,10 @@ export default function Reservations() {
               >
                 Departure Date
               </th>
+              <th
+                scope="col"
+                className="px-4 py-2 text-left text-xs  text-white uppercase "
+              ></th>
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200 border-collapse border border-gray-400">
@@ -132,6 +140,14 @@ export default function Reservations() {
                   </td>
                   <td className="px-4 py-2 whitespace-nowrap">
                     {normal_date(item.departureDate.substring(0, 10))}
+                  </td>
+                  <td className="flex px-4 py-2 whitespace-nowrap justify-center">
+                    <button
+                      className="text-sm mr-3 bg-red-600   text-white py-1  px-2 rounded hover:shadow-lg "
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))}

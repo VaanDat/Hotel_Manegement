@@ -14,6 +14,11 @@ const bookingSlice = createSlice({
       error: true,
       success: false,
     },
+    deleteBooking: {
+      isFetching: false,
+      error: false,
+    },
+    msg: "",
   },
   reducers: {
     getBookingsStart: (state) => {
@@ -38,11 +43,33 @@ const bookingSlice = createSlice({
       state.addBooking.success = true;
     },
     addBookingFailed: (state) => {
-      state.addBooking.isFetching=false;
-      state.addBooking.error=true;
-    }
+      state.addBooking.isFetching = false;
+      state.addBooking.error = true;
+    },
+    deleteBookingStart: (state) => {
+      state.deleteBooking.isFetching = true;
+    },
+    deleteBookingSuccess: (state, action) => {
+      state.deleteBooking.isFetching = false;
+      state.deleteBooking.error = false;
+      state.msg = action.payload;
+    },
+    deleteBookingFailed: (state, action) => {
+      state.deleteBooking.isFetching = false;
+      state.deleteBooking.error = true;
+      state.msg = action.payload;
+    },
   },
 });
-export const { getBookingsStart, getBookingsSuccess, getBookingsFailed, addBookingStart,addBookingSuccess,addBookingFailed } =
-  bookingSlice.actions;
+export const {
+  getBookingsStart,
+  getBookingsSuccess,
+  getBookingsFailed,
+  addBookingStart,
+  addBookingSuccess,
+  addBookingFailed,
+  deleteBookingStart,
+  deleteBookingSuccess,
+  deleteBookingFailed,
+} = bookingSlice.actions;
 export default bookingSlice.reducer;

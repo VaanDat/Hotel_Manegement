@@ -29,6 +29,15 @@ const customerController = {
       console.error(err);
     }
   },
+  //DELETE CUSTOMER
+  deleteCustomer: async (req, res) => {
+    try {
+      const user = await Customer.findByIdAndDelete(req.params.id);
+      res.status(200).json("Delete successfully");
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 };
 
 module.exports = customerController;

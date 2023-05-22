@@ -11,5 +11,10 @@ router.get(
   middlewareController.verifyToken,
   customerController.getAllCustomer
 );
-
+//DELETE CUSTOMER
+router.delete(
+  "/:id",
+  middlewareController.verifyTokenAndAdminAuth,
+  customerController.deleteCustomer
+);
 module.exports = router;

@@ -12,4 +12,11 @@ router.get(
   bookingController.getAllBooking
 );
 
+//DELETE BOOKING
+router.delete(
+  "/:id",
+  middlewareController.verifyTokenAndAdminAuth,
+  bookingController.deleteBooking
+);
+
 module.exports = router;
