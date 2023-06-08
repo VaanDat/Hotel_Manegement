@@ -1,12 +1,13 @@
 import Dashboard from "../pages/Dashboard";
 import Users from "../pages/Users";
 import HouseKeeping from "../pages/Housekeeping";
-import Reservations from "../pages/Reservations";
+import Reservations from "../pages/Booking";
 import Customer from "../pages/Customer";
 import Rooms from "../pages/Rooms";
-import AddUser from "../components/AddUser";
-import AddCustomer from "../components/AddCustomer";
+import AddUser from "../components/UserForm";
+import AddCustomer from "../components/CustomerForm";
 import BookingForm from "../components/BookingForm";
+import UpdateUser from "../components/UpdateUser";
 
 const publicRoutes = [
   { path: "/dashboard", component: Dashboard, title: "Dashboard" },
@@ -18,6 +19,7 @@ const publicRoutes = [
   { path: "/adduser", component: AddUser, title: "Add User" },
   { path: "/addcustomer", component: AddCustomer, title: "Add Customer" },
   { path: "/addbooking", component: BookingForm, title: "Booking Form" },
+  { path: "/updateuser/:id", component: UpdateUser, title: "Update User" },
 ];
 
 const privateRoutes = [{}];

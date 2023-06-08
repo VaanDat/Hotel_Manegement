@@ -7,10 +7,6 @@ const roomtypeSchma = new mongoose.Schema(
       require: true,
       unique: true,
     },
-    capacity: {
-      type: Number,
-      requires: true,
-    },
     rate: {
       type: Number,
       require: true,

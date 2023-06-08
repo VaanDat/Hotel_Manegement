@@ -102,7 +102,7 @@ export default function Users() {
                     Delete
                   </button>
                   <Link
-                    to="/dashboard"
+                    to={`/updateuser/${item._id}`}
                     className="px-1 py-1 rounded bg-emerald-600 hover:shadow-lg"
                   >
                     <img src={edit} alt="" className="w-6 h-6 text-white" />

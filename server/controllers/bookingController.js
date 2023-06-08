@@ -31,10 +31,10 @@ const bookingController = {
       res.status(500).json(err);
     }
   },
-   //DELETE BOOKING
-   deleteBooking: async (req, res) => {
+  //DELETE BOOKING
+  deleteBooking: async (req, res) => {
     try {
-      const user = await Booking.findByIdAndDelete(req.params.id);
+      const booking = await Booking.findByIdAndDelete(req.params.id);
       res.status(200).json("Delete successfully");
     } catch (err) {
       res.status(500).json(err);
