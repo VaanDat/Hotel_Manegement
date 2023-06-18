@@ -1,6 +1,9 @@
 # Hotel Management Basic
 A myself project to user manage thei own hotel!!!
 
+## You can test with 
+- Username: phamvandat
+- Password: 123456789
 
 
 
